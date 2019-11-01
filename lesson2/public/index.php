@@ -21,7 +21,6 @@ function foo(IModels $model)
 
 echo foo($users);
 echo foo($basket);
-
 echo $product->getOne(1);
 
 
