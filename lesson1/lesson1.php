@@ -9,7 +9,8 @@ class Car
     public $tankVolume;
     public $driver;
 
-    public function __construct($brand = null, $color = null, $power = null,$fuelConsumption = 0, $tankVolume = 0, $driver = null) {
+    public function __construct($brand = null, $color = null, $power = null,$fuelConsumption = 0, $tankVolume = 0, $driver = null)
+    {
         $this->brand = $brand;
         $this->color = $color;
         $this->power = $power;
@@ -18,11 +19,13 @@ class Car
         $this->driver = $driver;
     }
 
-    public function quantityOfKilometers($volume){
+    public function quantityOfKilometers($volume)
+    {
         return 100 * $volume / $this -> fuelConsumption;
     }
 
-    public function setDriver($driver){
+    public function setDriver($driver)
+    {
         $this->driver = $driver;
     }
 
@@ -33,19 +36,22 @@ class Truck extends Car
     private $maxTonnage; // Максимальная загрузка кузова
     private $cargoWeight; // текущая загрузка кузова
 
-    public function __construct($brand = null, $color = null, $power = null,$fuelConsumption = 0, $tankVolume = 0, $driver = null,$maxTonnage = 0,$cargoWeight = 0) {
+    public function __construct($brand = null, $color = null, $power = null,$fuelConsumption = 0, $tankVolume = 0, $driver = null,$maxTonnage = 0,$cargoWeight = 0)
+    {
         parent::__construct($brand, $color, $power,$fuelConsumption, $tankVolume, $driver);
         $this->maxTonnage = $maxTonnage;
         $this->cargoWeight = $cargoWeight;
     }
 
-    public function remainingSpace(){
+    public function remainingSpace()
+    {
 
         return $this->maxTonnage - $this->cargoWeight;
 
     }
 
-    public function addLoad($volume){
+    public function addLoad($volume)
+    {
 
         $freeSpace = $this -> remainingSpace();
 
