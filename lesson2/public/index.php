@@ -14,7 +14,8 @@ $product = new Product($db);
 $users = new Users($db);
 $basket = new Basket($db);
 
-function foo(IModels $model) {
+function foo(IModels $model)
+{
     return $model->getTableName();
 }
 
