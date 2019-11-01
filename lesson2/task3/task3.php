@@ -60,7 +60,6 @@ $digitalBook = new DigitalProduct($book);
 $apple = new WeightProduct('Яблоки',50);
 
 // Покупаем
-
 $book->buy(1);
 $digitalBook->buy(1);
 $apple->buy(0.5);
