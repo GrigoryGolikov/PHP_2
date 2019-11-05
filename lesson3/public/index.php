@@ -22,7 +22,6 @@ $user->delete();
 $product = $product->getOne(3);
 var_dump($product);
 
-//$user->delete();
 
 
 
