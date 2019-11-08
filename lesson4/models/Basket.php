@@ -34,7 +34,8 @@ class Basket extends DbModel
         return "basket";
     }
 
-    public static function getBasket() {
+    public static function getBasket()
+    {
         $tableName = static::getTableName();
         $sql = "SELECT 
                     basket.id as basket_id, 

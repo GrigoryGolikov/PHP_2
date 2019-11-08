@@ -12,7 +12,8 @@ class Controller
     protected $layout = 'main';
     protected $useLayout = true;
 
-    public function runAction($action = null) {
+    public function runAction($action = null)
+    {
         $this->action = $action ?: $this->defaultAction;
         $method = "action" . ucfirst($this->action);
         if (method_exists($this, $method)) {
@@ -23,11 +24,13 @@ class Controller
 
     }
 
-    public function actionIndex() {
+    public function actionIndex()
+    {
         echo $this->render('index');
     }
 
-    public function render($template, $params = []) {
+    public function render($template, $params = [])
+    {
         if ($this->useLayout) {
             return $this->renderTemplate("layouts/{$this->layout}", [
                 'menu' => $this->renderTemplate('menu'),
@@ -38,7 +41,8 @@ class Controller
         }
     }
 
-    public function renderTemplate($template, $params = []) {
+    public function renderTemplate($template, $params = [])
+    {
         ob_start();
         extract($params);
         $templatePath = TEMPLATES_DIR . $template . ".php";
