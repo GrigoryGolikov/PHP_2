@@ -85,7 +85,7 @@ class Db
         $pdoStatement->bindValue(':from', $params['from'], \PDO::PARAM_INT);
         $pdoStatement->bindValue(':to', $params['to'], \PDO::PARAM_INT);
         $pdoStatement->execute();
-     var_dump($sql);
+     //var_dump($sql);
         return $pdoStatement->fetchAll();
     }
 

@@ -12,4 +12,4 @@
     </div>
 <?php endforeach; ?>
 
-<a href="?from=<?=$from?>&to=<?=$to?>">Еще</a>
+<a href="?page=<?=$page?>">Еще</a>

@@ -11,17 +11,17 @@ class ProductController extends Controller
     public function actionCatalog()
     {
         //$catalog = Product::getAll();
-        $from = $_GET['from'];
-        If (!isset($from)){
-            $from = 0;
-        }
-        $to = $_GET['to'];
-        If (!isset($to)){
-            $to = 2;
+        $page = $_GET['page'];
+        If (!isset($page)){
+            $page = 0;
         }
 
+        //$from = $page * 3;
+        $from = 0;
+
+        $to = $page * 3 + 3;
         $catalog = Product::getLimit($from,$to);
-        echo $this->render('catalog', ['catalog' => $catalog, 'from'=> $from + 3, 'to' => $to + 3]);
+        echo $this->render('catalog', ['catalog' => $catalog, 'page'=> $page + 1]);
     }
 
     public function actionApiCatalog()
