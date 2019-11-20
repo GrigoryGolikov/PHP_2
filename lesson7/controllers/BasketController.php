@@ -29,7 +29,7 @@ class BasketController extends Controller
     {
         $id = $this->request->getParams()['id'];
 
-        (new BasketRepository())->deleteBasket($id, session_id());
+        (new BasketRepository())->deleteBasket($id);
         header('Content-Type: application/json');
         echo json_encode(['response' => 'ok', 'count' => (new BasketRepository())->getCountWhere('session_id', session_id()) ]);
         die();

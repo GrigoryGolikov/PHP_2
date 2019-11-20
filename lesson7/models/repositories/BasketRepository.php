@@ -20,11 +20,11 @@ class BasketRepository extends Repository
     {
         return Basket::class;
     }
-    public function deleteBasket($id, $session_id)
+    public function deleteBasket($id)
     {
         $tableName = $this->getTableName();
         $sql = "DELETE FROM {$tableName} WHERE id = :id and session_id = :session_id";
-        return Db::getInstance()->execute($sql, [":id" => $id, ":session_id" => $session_id]);
+        return Db::getInstance()->execute($sql, [":id" => $id, ":session_id" => session_id()]);
     }
 
     public function getBasket()
