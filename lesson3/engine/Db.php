@@ -19,7 +19,8 @@ class Db
 
     private $connection = null;
 
-    private function getConnection() {
+    private function getConnection()
+    {
         if (is_null($this->connection)) {
             var_dump("Подключаюсь к БД...");
             $this->connection =  new \PDO($this->prepareDSNstring(),
@@ -31,7 +32,8 @@ class Db
         return $this->connection;
     }
 
-    private function prepareDSNstring() {
+    private function prepareDSNstring()
+    {
         return sprintf('%s:host=%s;dbname=%s;charset=%s',
             $this->config['driver'],
             $this->config['host'],
@@ -46,22 +48,24 @@ class Db
         return $pdoStatement;
     }
 
-    public function execute($sql, $params = []) {
-      //  var_dump($sql);
-      //  var_dump($params);
+    public function execute($sql, $params = [])
+    {
         $this->query($sql, $params);
         return true;
     }
 
-    public function queryOne($sql, $params = []) {
+    public function queryOne($sql, $params = [])
+    {
         return $this->queryAll($sql, $params)[0];
     }
 
-    public function queryAll($sql, $params = []) {
+    public function queryAll($sql, $params = [])
+    {
         return $this->query($sql, $params)->fetchAll();
     }
 
-    public function lastInsertId() {
+    public function lastInsertId()
+    {
         return $this->getConnection()->lastInsertId();
     }
 
